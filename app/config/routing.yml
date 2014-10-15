@@ -1,0 +1,4 @@
+exialps_gestionlps:
+    resource: "@exialpsGestionlpsBundle/Resources/config/routing.yml"
+    prefix:   /
+

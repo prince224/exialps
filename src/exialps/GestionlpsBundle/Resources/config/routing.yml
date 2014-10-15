@@ -1,0 +1,27 @@
+exialps_gestionlps_homepage:
+    path:     /
+    defaults: { _controller: exialpsGestionlpsBundle:Prospect:index }
+
+exialps_gestionlps_proprietaire:
+    path:     /proprietaire
+    defaults: { _controller: exialpsGestionlpsBundle:Prospect:propietaire }
+
+exialps_gestionlps_add_proprietaire:
+    path:     /ajout_proprietaire
+    defaults: { _controller: exialpsGestionlpsBundle:Prospect:ajoutPropietaire }
+
+exialps_gestionlps_update_proprietaire:
+    path:     /modification_proprietaire/{id}
+    defaults: { _controller: exialpsGestionlpsBundle:Prospect:modificationPropietaire }
+
+exialps_gestionlps_remove_proprietaire:
+    path:     /suppression_proprietaire/{id}
+    defaults: { _controller: exialpsGestionlpsBundle:Prospect:suppressionPropietaire }
+
+exialps_gestionlps_locataire:
+    path:     /locataire
+    defaults: { _controller: exialpsGestionlpsBundle:Prospect:locataire }
+
+exialps_gestionlps_resource_page:
+    path:     /creation-fiches-employes-et-sous-traitants
+    defaults: { _controller: exialpsGestionlpsBundle:Employers:index }

@@ -1,0 +1,4 @@
+services:
+#    exialps_gestionlps.example:
+#        class: exialps\GestionlpsBundle\Example
+#        arguments: [@service_id, "plain_value", %parameter%]
