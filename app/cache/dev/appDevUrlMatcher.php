@@ -122,43 +122,36 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
 
         }
 
-        // exialps_gestionlps_homepage
+        // Exia_Lps_homepage
         if (rtrim($pathinfo, '/') === '') {
             if (substr($pathinfo, -1) !== '/') {
-                return $this->redirect($pathinfo.'/', 'exialps_gestionlps_homepage');
+                return $this->redirect($pathinfo.'/', 'Exia_Lps_homepage');
             }
 
-            return array (  '_controller' => 'exialps\\GestionlpsBundle\\Controller\\ProspectController::indexAction',  '_route' => 'exialps_gestionlps_homepage',);
+            return array (  '_controller' => 'exialps\\RessourcesBundle\\Controller\\DefaultController::indexAction',  '_route' => 'Exia_Lps_homepage',);
         }
 
-        // exialps_gestionlps_proprietaire
-        if ($pathinfo === '/proprietaire') {
-            return array (  '_controller' => 'exialps\\GestionlpsBundle\\Controller\\ProspectController::propietaireAction',  '_route' => 'exialps_gestionlps_proprietaire',);
+        if (0 === strpos($pathinfo, '/c')) {
+            // Exia_Lps_clients_proprietaires_homepage
+            if ($pathinfo === '/clients_proprietaires') {
+                return array (  '_controller' => 'exialps\\RessourcesBundle\\Controller\\ClientController::indexProprietaireAction',  '_route' => 'Exia_Lps_clients_proprietaires_homepage',);
+            }
+
+            // Exia_Lps_creation_creer_fiche_client_proprietaire
+            if ($pathinfo === '/creer-client-proprietaire') {
+                return array (  '_controller' => 'exialps\\RessourcesBundle\\Controller\\ClientController::creerFicheProprietaireAction',  '_route' => 'Exia_Lps_creation_creer_fiche_client_proprietaire',);
+            }
+
         }
 
-        // exialps_gestionlps_add_proprietaire
-        if ($pathinfo === '/ajout_proprietaire') {
-            return array (  '_controller' => 'exialps\\GestionlpsBundle\\Controller\\ProspectController::ajoutPropietaireAction',  '_route' => 'exialps_gestionlps_add_proprietaire',);
+        // Exia_Lps_creation_voir_fiche_client_proprietaire
+        if (0 === strpos($pathinfo, '/voir-client-proprietaire') && preg_match('#^/voir\\-client\\-proprietaire/(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
+            return $this->mergeDefaults(array_replace($matches, array('_route' => 'Exia_Lps_creation_voir_fiche_client_proprietaire')), array (  '_controller' => 'exialps\\RessourcesBundle\\Controller\\ClientController::voirFicheProprietaireAction',));
         }
 
-        // exialps_gestionlps_update_proprietaire
-        if (0 === strpos($pathinfo, '/modification_proprietaire') && preg_match('#^/modification_proprietaire/(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
-            return $this->mergeDefaults(array_replace($matches, array('_route' => 'exialps_gestionlps_update_proprietaire')), array (  '_controller' => 'exialps\\GestionlpsBundle\\Controller\\ProspectController::modificationPropietaireAction',));
-        }
-
-        // exialps_gestionlps_remove_proprietaire
-        if (0 === strpos($pathinfo, '/suppression_proprietaire') && preg_match('#^/suppression_proprietaire/(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
-            return $this->mergeDefaults(array_replace($matches, array('_route' => 'exialps_gestionlps_remove_proprietaire')), array (  '_controller' => 'exialps\\GestionlpsBundle\\Controller\\ProspectController::suppressionPropietaireAction',));
-        }
-
-        // exialps_gestionlps_locataire
-        if ($pathinfo === '/locataire') {
-            return array (  '_controller' => 'exialps\\GestionlpsBundle\\Controller\\ProspectController::locataireAction',  '_route' => 'exialps_gestionlps_locataire',);
-        }
-
-        // exialps_gestionlps_resource_page
-        if ($pathinfo === '/creation-fiches-employes-et-sous-traitants') {
-            return array (  '_controller' => 'exialpsGestionlpsBundle:Employers:index',  '_route' => 'exialps_gestionlps_resource_page',);
+        // Exia_Lps_creation_modifier_fiche_client_proprietaire
+        if (0 === strpos($pathinfo, '/modifier-client-proprietaire') && preg_match('#^/modifier\\-client\\-proprietaire/(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
+            return $this->mergeDefaults(array_replace($matches, array('_route' => 'Exia_Lps_creation_modifier_fiche_client_proprietaire')), array (  '_controller' => 'exialps\\RessourcesBundle\\Controller\\ClientController::modifierFicheProprietaireAction',));
         }
 
         throw 0 < count($allow) ? new MethodNotAllowedException(array_unique($allow)) : new ResourceNotFoundException();

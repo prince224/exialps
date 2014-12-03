@@ -1,0 +1,4 @@
+services:
+#    facturation.example:
+#        class: exialps\FacturationBundle\Example
+#        arguments: [@service_id, "plain_value", %parameter%]

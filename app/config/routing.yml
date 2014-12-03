@@ -1,4 +1,13 @@
-exialps_gestionlps:
-    resource: "@exialpsGestionlpsBundle/Resources/config/routing.yml"
+facturation:
+    resource: "@FacturationBundle/Resources/config/routing.yml"
     prefix:   /
+
+travaux:
+    resource: "@TravauxBundle/Resources/config/routing.yml"
+    prefix:   /
+
+ressources:
+    resource: "@RessourcesBundle/Resources/config/routing.yml"
+    prefix:   /
+
 

@@ -53,10 +53,13 @@ class __TwigTemplate_da1b1ea31b291a0b43d60e5a900f46ceae69c2d560d24d2bf9410033458
                 <li class=\"dropdown\">
                   <a href=\"#\" class=\"dropdown-toggle\" data-toggle=\"dropdown\">CLIENTS<span class=\"caret\"></span></a>
                   <ul class=\"dropdown-menu\" role=\"menu\">
-                    <li><a href=\"#\">NOS PROPRIETAIRES</a></li>
+                    <li><a href=\"";
+        // line 31
+        echo $this->env->getExtension('routing')->getPath("Exia_Lps_clients_proprietaires_homepage");
+        echo " \">NOS PROPRIETAIRES</a></li>
                     <li><a href=\"#\">NOS LOCATAIRES</a></li>
                     <li class=\"divider\"></li>
-                    <li><a href=\"#\">LISTE DES CLIENTS</a></li>
+                    <li><a href=\"#\">NOS FOURNISSEURS</a></li>
                     
                   </ul>
                 </li>
@@ -79,6 +82,28 @@ class __TwigTemplate_da1b1ea31b291a0b43d60e5a900f46ceae69c2d560d24d2bf9410033458
                     <li><a href=\"#\">LISTE DES RESSOURCES</a></li>
                   </ul>
                 </li>
+
+                <!--
+                <li class=\"dropdown\">
+                  <a href=\"#\" class=\"dropdown-toggle\" data-toggle=\"dropdown\">DEBOURSES<span class=\"caret\"></span></a>
+                  <ul class=\"dropdown-menu\" role=\"menu\">
+                    <li><a href=\"#\">INTERVENTIONS</a></li>
+                    <li><a href=\"#\">CHANTIERS</a></li>
+                    <li class=\"divider\"></li>
+                    <li><a href=\"#\">LISTE DES DEBOURSES</a></li>
+                  </ul>
+                </li>
+
+                <li class=\"dropdown\">
+                  <a href=\"#\" class=\"dropdown-toggle\" data-toggle=\"dropdown\">FACTURATIONS<span class=\"caret\"></span></a>
+                  <ul class=\"dropdown-menu\" role=\"menu\">
+                    <li><a href=\"#\">SITUATION</a></li>
+                    <li><a href=\"#\">DEFINITIVES</a></li>
+                    <li class=\"divider\"></li>
+                    <li><a href=\"#\">LISTE DES FACTURES</a></li>
+                  </ul>
+                </li>
+              -->
 
               </ul>
               <form class=\"navbar-form navbar-left\" role=\"search\">
@@ -106,14 +131,14 @@ class __TwigTemplate_da1b1ea31b291a0b43d60e5a900f46ceae69c2d560d24d2bf9410033458
 
     </header>
     ";
-        // line 83
+        // line 105
         $this->displayBlock('body', $context, $blocks);
-        // line 86
+        // line 108
         echo "
     <script src=\"https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js\"></script>
 
     <script src=\"";
-        // line 89
+        // line 111
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bootstrap/js/bootstrap.js"), "html", null, true);
         echo " \"></script>
     
@@ -126,10 +151,10 @@ class __TwigTemplate_da1b1ea31b291a0b43d60e5a900f46ceae69c2d560d24d2bf9410033458
 </html>";
     }
 
-    // line 83
+    // line 105
     public function block_body($context, array $blocks = array())
     {
-        // line 84
+        // line 106
         echo "
     ";
     }
@@ -146,6 +171,6 @@ class __TwigTemplate_da1b1ea31b291a0b43d60e5a900f46ceae69c2d560d24d2bf9410033458
 
     public function getDebugInfo()
     {
-        return array (  133 => 84,  130 => 83,  117 => 89,  112 => 86,  110 => 83,  30 => 6,  26 => 5,  20 => 1,  31 => 4,  28 => 3,);
+        return array (  158 => 106,  155 => 105,  142 => 111,  137 => 108,  135 => 105,  58 => 31,  30 => 6,  26 => 5,  20 => 1,);
     }
 }

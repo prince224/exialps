@@ -1,0 +1,20 @@
+Exia_Lps_homepage:
+    path:     /
+    defaults: { _controller: RessourcesBundle:Default:index }
+
+
+Exia_Lps_clients_proprietaires_homepage:
+    path:     /clients_proprietaires
+    defaults: { _controller: RessourcesBundle:Client:indexProprietaire }
+
+Exia_Lps_creation_creer_fiche_client_proprietaire:
+    path: /creer-client-proprietaire
+    defaults: { _controller: RessourcesBundle:Client:creerFicheProprietaire }
+
+Exia_Lps_creation_voir_fiche_client_proprietaire:
+    path: /voir-client-proprietaire/{id}
+    defaults: { _controller: RessourcesBundle:Client:voirFicheProprietaire }
+
+Exia_Lps_creation_modifier_fiche_client_proprietaire:
+    path: /modifier-client-proprietaire/{id}
+    defaults: { _controller: RessourcesBundle:Client:modifierFicheProprietaire }

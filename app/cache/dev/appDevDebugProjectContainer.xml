@@ -16,7 +16,9 @@
       <parameter key="AsseticBundle">Symfony\Bundle\AsseticBundle\AsseticBundle</parameter>
       <parameter key="DoctrineBundle">Doctrine\Bundle\DoctrineBundle\DoctrineBundle</parameter>
       <parameter key="SensioFrameworkExtraBundle">Sensio\Bundle\FrameworkExtraBundle\SensioFrameworkExtraBundle</parameter>
-      <parameter key="exialpsGestionlpsBundle">exialps\GestionlpsBundle\exialpsGestionlpsBundle</parameter>
+      <parameter key="RessourcesBundle">exialps\RessourcesBundle\RessourcesBundle</parameter>
+      <parameter key="TravauxBundle">exialps\TravauxBundle\TravauxBundle</parameter>
+      <parameter key="FacturationBundle">exialps\FacturationBundle\FacturationBundle</parameter>
       <parameter key="WebProfilerBundle">Symfony\Bundle\WebProfilerBundle\WebProfilerBundle</parameter>
       <parameter key="SensioDistributionBundle">Sensio\Bundle\DistributionBundle\SensioDistributionBundle</parameter>
       <parameter key="SensioGeneratorBundle">Sensio\Bundle\GeneratorBundle\SensioGeneratorBundle</parameter>
@@ -2357,7 +2359,9 @@
       <argument type="service">
         <service class="Doctrine\ORM\Configuration" public="false">
           <call method="setEntityNamespaces">
-            <argument type="collection"/>
+            <argument type="collection">
+              <argument key="RessourcesBundle">exialps\RessourcesBundle\Entity</argument>
+            </argument>
           </call>
           <call method="setMetadataCacheImpl">
             <argument type="service">
@@ -2388,7 +2392,19 @@
           </call>
           <call method="setMetadataDriverImpl">
             <argument type="service">
-              <service class="Doctrine\ORM\Mapping\Driver\DriverChain" public="false"/>
+              <service class="Doctrine\ORM\Mapping\Driver\DriverChain" public="false">
+                <call method="addDriver">
+                  <argument type="service">
+                    <service class="Doctrine\ORM\Mapping\Driver\AnnotationDriver" public="false">
+                      <argument type="service" id="annotation_reader"/>
+                      <argument type="collection">
+                        <argument>C:\wamp\www\exialps\src\exialps\RessourcesBundle\Entity</argument>
+                      </argument>
+                    </service>
+                  </argument>
+                  <argument>exialps\RessourcesBundle\Entity</argument>
+                </call>
+              </service>
             </argument>
           </call>
           <call method="setProxyDir">
@@ -2793,8 +2809,16 @@
         <argument>Doctrine</argument>
       </call>
       <call method="addPath">
-        <argument>C:\wamp\www\exialps\src\exialps\GestionlpsBundle/Resources/views</argument>
-        <argument>exialpsGestionlps</argument>
+        <argument>C:\wamp\www\exialps\src\exialps\RessourcesBundle/Resources/views</argument>
+        <argument>Ressources</argument>
+      </call>
+      <call method="addPath">
+        <argument>C:\wamp\www\exialps\src\exialps\TravauxBundle/Resources/views</argument>
+        <argument>Travaux</argument>
+      </call>
+      <call method="addPath">
+        <argument>C:\wamp\www\exialps\src\exialps\FacturationBundle/Resources/views</argument>
+        <argument>Facturation</argument>
       </call>
       <call method="addPath">
         <argument>C:\wamp\www\exialps\vendor\symfony\symfony\src\Symfony\Bundle\WebProfilerBundle/Resources/views</argument>
